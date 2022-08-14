@@ -73,7 +73,7 @@ public class IslandLife {
     }
 
     private static void timeToEat() {
-        ExecutorService executorService = Executors.newFixedThreadPool(25);
+        ExecutorService executorService = Executors.newFixedThreadPool(1);
         CountDownLatch countDownLatch = new CountDownLatch(IslandModel.getIsland().getCountOfLocation());
         for (int i = 0; i < IslandModel.getIsland().getIslandHeight(); i++) {
             for (int j = 0; j < IslandModel.getIsland().getIslandWidth(); j++) {

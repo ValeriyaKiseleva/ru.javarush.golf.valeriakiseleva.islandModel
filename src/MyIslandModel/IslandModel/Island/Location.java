@@ -28,7 +28,7 @@ public class Location {
     }
 
     //
-    public void deleteFromLocation(Animal animal) {
+    public void  deleteFromLocation(Animal animal) {
         locationEntities.get(animal.getClass()).remove(animal);
     }
 

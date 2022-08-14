@@ -30,10 +30,11 @@ public abstract class Animal {
 
     //
     public void transfer() {
+        this.decreaseSatiety();
+
         Coordinates nextCoordinates = new RandomOperation().getRandomTransferCoordinate(this);
 
         if (coordinatesOnIsland.x != nextCoordinates.x || coordinatesOnIsland.y != nextCoordinates.y) {
-            this.decreaseSatiety();
             this.leaveLocation();
 
             coordinatesOnIsland.x = nextCoordinates.x;
@@ -53,15 +54,18 @@ public abstract class Animal {
     public abstract void eat();
 
     public void checkSatiety() {
-        if (this.currentSatiety <= (this.getClass().getAnnotation(AnimalClassParameters.class).maxSatiety())*0.9) {
+        if (this.currentSatiety <= (this.getClass().getAnnotation(AnimalClassParameters.class).maxSatiety()) * 0.9) {
             eat();
         }
     }
 
     public void leaveTheWorld() {
-        IslandModel.getIslandPopulationMap().get(this.getClass()).populationDecrease(this);
+        if (IslandModel.getIslandPopulationMap().get(this.getClass()) != null) {
+            IslandModel.getIslandPopulationMap().get(this.getClass()).populationDecrease(this);
+        }
 
         Location.getLocationByCoordinates(coordinatesOnIsland).deleteFromLocation(this);
+
     }
 
     public void increaseSatiety(float increasedWeigh) {

@@ -77,10 +77,8 @@ public class AnimalPopulation<T extends Animal> {
                 }
 
                 if (countOfNewbornAnimals != 0) {
-
                     appearNewbornAnimal(countOfNewbornAnimals, locationCoordinates);
                 }
-
             }
         }
     }
@@ -97,6 +95,7 @@ public class AnimalPopulation<T extends Animal> {
     }
 
     public void populationDecrease(Animal animal) {
+
         population.remove(animal);
         populationCounter--;
 

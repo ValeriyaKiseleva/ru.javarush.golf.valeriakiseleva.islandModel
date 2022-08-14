@@ -23,7 +23,11 @@ public class Caterpillar extends Herbivore {
 
     @Override
     public void eat() {
-        plantEat(getCoordinatesOnIsland(), getCurrentSatiety());
+        float eatenFood = plantEat(getCoordinatesOnIsland(), getCurrentSatiety());
+        if (eatenFood == 0 && new Random().nextBoolean()) {
+            this.leaveTheWorld();
+        }
+
     }
 
     @Override
