@@ -23,7 +23,7 @@ public interface PlantEatable {
         }
 
         int countOfEatenPlants = 0;
-        if (canToEatPlantElse != 0) {
+        if (canToEatPlantElse > 0) {
             countOfEatenPlants = new Random().nextInt(canToEatPlantElse + 1);
         }
 
